@@ -43,7 +43,7 @@ public class CalculadoraController {
 		  
 		  float resultadoResta = unaCalculadora.restarDosNumeros();
 		  
-		  ModelAndView modelView = new ModelAndView("resultadoR");
+		  ModelAndView modelView = new ModelAndView("resultado");
 		  modelView.addObject("resultadoResta", resultadoResta);
 		  
 		  return modelView;
@@ -60,7 +60,7 @@ public ModelAndView getCalculoDiv(@RequestParam (name = "num1") float num1 , @Re
   
   float resultadoD = unaCalculadora.dividirDosNumeros();
   
-  ModelAndView modelView = new ModelAndView("resultadoD");
+  ModelAndView modelView = new ModelAndView("resultado");
   modelView.addObject("resultadoDiv", resultadoD);
   
   return modelView;
@@ -75,7 +75,7 @@ public ModelAndView getCalculoMulti(@RequestParam (name = "num1") float num1 , @
   
   float resultadoM = unaCalculadora.multiplicardosnumeros();
   
-  ModelAndView modelView = new ModelAndView("resultadoM");
+  ModelAndView modelView = new ModelAndView("resultado");
   modelView.addObject("resultadoMulti", resultadoM);
   
   return modelView;
