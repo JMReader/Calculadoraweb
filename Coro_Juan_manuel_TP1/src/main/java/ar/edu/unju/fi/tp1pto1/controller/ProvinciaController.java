@@ -17,8 +17,8 @@ class ProvinciaController {
 	  
 	@GetMapping({"/provincia"})
 		public String cargarProvincia(Model model) {
-			unaProvincia.setNombre("Salta Argentina");
-			model.addAttribute("Nicole", unaProvincia);
+			unaProvincia.setNombre("Jujuy Argentina");
+			model.addAttribute("korita", unaProvincia);
 			return "provincia";
 		}
 }
