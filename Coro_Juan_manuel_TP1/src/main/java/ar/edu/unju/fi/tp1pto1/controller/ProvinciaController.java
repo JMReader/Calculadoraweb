@@ -6,14 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ar.edu.unju.tp1.model.Provincia;
+import ar.edu.unju.fi.tp1pto1.model.Provincia;
 
 @Controller
 class ProvinciaController {
 
 	//Provincia unaProvincia = new Provincia(); //instanciando la clase provincia, estamos creando una variable una provincia que tiene un objeto asignando a un espacio de memoria
-	@Autowired
-	  Provincia unaProvincia;
+@Autowired
+	  Provincia unaProvincia = new Provincia ();
 	  
 	@GetMapping({"/provincia"})
 		public String cargarProvincia(Model model) {

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.tp1.model.Calculadora;
+import ar.edu.unju.fi.tp1pto1.model.Calculadora;
 
 @Controller
 public class CalculadoraController {
 
 	@Autowired
-	Calculadora unaCalculadora;
+	Calculadora unaCalculadora = new Calculadora ();
 	
 	@GetMapping("/calculadora")
 	public String getMenuCalculadora(Model model) {
@@ -21,10 +21,10 @@ public class CalculadoraController {
 	}
 
 	@GetMapping("/calculoSuma")
-	public ModelAndView getCalculoSuma(@RequestParam (name = "num1") float num1 , @RequestParam (name = "num2") float num2){
+	public ModelAndView getCalculoSuma(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
 	  
-	  unaCalculadora.setA(num1);
-	  unaCalculadora.setB(num2);
+	  unaCalculadora.setA(a);
+	  unaCalculadora.setB(b);
 	  
 	  float resultadoSuma = unaCalculadora.sumarDosNumeros();
 	  

@@ -1,6 +1,9 @@
-package ar.edu.unju.tp1.model;
+package ar.edu.unju.fi.tp1pto1.model;
+
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class Calculadora {
 
 		private float a, b;
