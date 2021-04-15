@@ -13,7 +13,7 @@ class ProvinciaController {
 
 	//Provincia unaProvincia = new Provincia(); //instanciando la clase provincia, estamos creando una variable una provincia que tiene un objeto asignando a un espacio de memoria
 @Autowired
-	  Provincia unaProvincia = new Provincia ();
+	  Provincia unaProvincia;
 	  
 	@GetMapping({"/provincia"})
 		public String cargarProvincia(Model model) {

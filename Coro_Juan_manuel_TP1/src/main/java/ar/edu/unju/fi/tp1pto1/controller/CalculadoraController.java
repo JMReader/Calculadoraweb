@@ -28,7 +28,7 @@ public class CalculadoraController {
 	  
 	  float resultadoSuma = unaCalculadora.sumarDosNumeros();
 	  
-	  ModelAndView modelView = new ModelAndView("resultadoS");
+	  ModelAndView modelView = new ModelAndView("resultado");
 	  modelView.addObject("resultadoSuma", resultadoSuma);
 	  
 	  return modelView;
@@ -36,10 +36,10 @@ public class CalculadoraController {
 	}
 	
 	@GetMapping("/calculoResta")
-	public ModelAndView getCalculoResta(@RequestParam (name = "num1") float num1 , @RequestParam (name = "num2") float num2){
+	public ModelAndView getCalculoResta(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
 		  
-		  unaCalculadora.setA(num1);
-		  unaCalculadora.setB(num2);
+		  unaCalculadora.setA(a);
+		  unaCalculadora.setB(b);
 		  
 		  float resultadoResta = unaCalculadora.restarDosNumeros();
 		  
