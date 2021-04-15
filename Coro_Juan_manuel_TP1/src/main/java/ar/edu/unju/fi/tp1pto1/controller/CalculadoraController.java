@@ -53,10 +53,10 @@ public class CalculadoraController {
 
 
 @GetMapping("/calculoDiv")
-public ModelAndView getCalculoDiv(@RequestParam (name = "num1") float num1 , @RequestParam (name = "num2") float num2){
+public ModelAndView getCalculoDiv(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
   
-  unaCalculadora.setA(num1);
-  unaCalculadora.setB(num2);
+	  unaCalculadora.setA(a);
+	  unaCalculadora.setB(b);
   
   float resultadoD = unaCalculadora.dividirDosNumeros();
   
@@ -68,10 +68,10 @@ public ModelAndView getCalculoDiv(@RequestParam (name = "num1") float num1 , @Re
 }
 
 @GetMapping("/calculoMulti")
-public ModelAndView getCalculoMulti(@RequestParam (name = "num1") float num1 , @RequestParam (name = "num2") float num2){
+public ModelAndView getCalculoMulti(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
   
-  unaCalculadora.setA(num1);
-  unaCalculadora.setB(num2);
+  unaCalculadora.setA(a);
+  unaCalculadora.setB(b);
   
   float resultadoM = unaCalculadora.multiplicardosnumeros();
   
