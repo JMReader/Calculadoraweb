@@ -7,9 +7,23 @@ import org.springframework.stereotype.Component;
 public class Calculadora {
 
 		private float a, b;
-	
+		private String op;
 		
 		
+		public Calculadora(float a, float b, String op) {
+			this.a = a;
+			this.b = b;
+			this.op = op;
+		}
+
+		public void setOp(String op) {
+			this.op = op;
+		}
+
+		public String getOp() {
+			return op;
+		}
+
 		public Calculadora() {
 			
 			//metodo constructor

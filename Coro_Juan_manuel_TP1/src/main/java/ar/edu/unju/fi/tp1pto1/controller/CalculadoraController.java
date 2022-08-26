@@ -18,6 +18,8 @@ public class CalculadoraController {
 	
 	@GetMapping("/calculadora")
 	public String getMenuCalculadora(Model model) {
+		model.addAttribute("op", new Calculadora());
+		
 		return("calculadora");
 	}
 
