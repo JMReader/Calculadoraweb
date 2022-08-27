@@ -6,10 +6,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class Calculadora {
 
-		private float a, b;
-		private String op;
+		private float a, b, resul;
+		private String op ;
 		
 		
+		public float getResul() {
+			return resul;
+		}
+
+		public void setResul(float resul) {
+			this.resul = resul;
+		}
+
+
 		public Calculadora(float a, float b, String op) {
 			this.a = a;
 			this.b = b;
@@ -30,15 +39,11 @@ public class Calculadora {
 			
 		}
 		
-		public float sumarDosNumeros () {
-
-			float suma;
-			suma=a+b;
-
-			return suma;
+		public void sumarDosNumeros () {
+this.resul = a+b;
 		}
 		
-		public float dividirDosNumeros () {
+		public void dividirDosNumeros () {
 			
 			float division;
 			division=0;
@@ -48,26 +53,19 @@ public class Calculadora {
 			division=a/b;
 		
 		}
-			return division;
+			this.resul= division;
 		}
 		
-		public float restarDosNumeros ( ) {
+		public void restarDosNumeros ( ) {
+			this.resul = a-b;		
+		}
+
+		public void multiplicardosnumeros () {
 			
-			float resta;
-			resta=a-b;
-			return resta;
+			this.resul= a*b;
 			
 		}
 
-		public float multiplicardosnumeros () {
-			
-			float mult;
-			mult=a*b;
-			return mult;
-			
-		}
-
-		
 		public float getA() {
 			return a;
 		}
@@ -88,9 +86,6 @@ public class Calculadora {
 		public String toString() {
 			return "Calculadora [a=" + a + ", b=" + b + "]";
 		}
-
-
-
 
 		@Override
 		public boolean equals(Object obj) {

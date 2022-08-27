@@ -13,77 +13,40 @@ import ar.edu.unju.fi.tp1pto1.model.Calculadora;
 public class CalculadoraController {
 
 	@Autowired
-	Calculadora unaCalculadora = new Calculadora ();
-	
-	
+	Calculadora unaCalculadora = new Calculadora();
+
 	@GetMapping("/calculadora")
 	public String getMenuCalculadora(Model model) {
-		model.addAttribute("op", new Calculadora());
+		model.addAttribute("num", new Calculadora());
 		
-		return("calculadora");
+		return ("calculadora");
 	}
 
-	@GetMapping("/calculoSuma")
-	public ModelAndView getCalculoSuma(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
-	  
-	  unaCalculadora.setA(a);
-	  unaCalculadora.setB(b);
-	  
-	  float resultadoSuma = unaCalculadora.sumarDosNumeros();
-	  
-	  ModelAndView modelView = new ModelAndView("resultado");
-	  modelView.addObject("resultadoSuma", resultadoSuma);
-	  
-	  return modelView;
-	  
-	}
-	
-	@GetMapping("/calculoResta")
-	public ModelAndView getCalculoResta(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
-		  
-		  unaCalculadora.setA(a);
-		  unaCalculadora.setB(b);
-		  
-		  float resultadoResta = unaCalculadora.restarDosNumeros();
-		  
-		  ModelAndView modelView = new ModelAndView("resultado");
-		  modelView.addObject("resultadoResta", resultadoResta);
-		  
-		  return modelView;
-		  
+	@GetMapping("/calculo")
+	public String getCalculo(@RequestParam(name = "a") float a, @RequestParam(name = "b") float b,
+			@RequestParam(name = "op") String Op) {
+		unaCalculadora.setA(a);
+		unaCalculadora.setB(b);
+		unaCalculadora.setOp(Op);
+		switch (Op) {
+
+			case "suma":
+				unaCalculadora.sumarDosNumeros();
+				break;
+
+			case "resta":
+				unaCalculadora.restarDosNumeros();
+				break;
+			case "multiplicacion":
+				unaCalculadora.multiplicardosnumeros();
+				break;
+			case "division":
+				unaCalculadora.dividirDosNumeros();
+				break;
+			default:
+
 		}
-	
 
-
-@GetMapping("/calculoDiv")
-public ModelAndView getCalculoDiv(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
-  
-	  unaCalculadora.setA(a);
-	  unaCalculadora.setB(b);
-  
-  float resultadoD = unaCalculadora.dividirDosNumeros();
-  
-  ModelAndView modelView = new ModelAndView("resultado");
-  modelView.addObject("resultadoDiv", resultadoD);
-  
-  return modelView;
-  
-}
-
-@GetMapping("/calculoMulti")
-public ModelAndView getCalculoMulti(@RequestParam (name = "a") float a , @RequestParam (name = "b") float b){
-  
-  unaCalculadora.setA(a);
-  unaCalculadora.setB(b);
-  
-  float resultadoM = unaCalculadora.multiplicardosnumeros();
-  
-  ModelAndView modelView = new ModelAndView("resultado");
-  modelView.addObject("resultadoMulti", resultadoM);
-  
-  return modelView;
-  
-}
-
-
+		return ("calculadora");
+	}
 }
