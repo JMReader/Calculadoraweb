@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,38 +17,31 @@ public class CalculadoraController {
 	@Autowired
 	Calculadora unaCalculadora = new Calculadora();
 
-	@GetMapping("/calculadora")
+	@GetMapping({"/calculadora" , "/"})
 	public String getMenuCalculadora(Model model) {
 		model.addAttribute("num", new Calculadora());
 		
 		return ("calculadora");
 	}
 
-	@GetMapping("/calculo")
-	public String getCalculo(@RequestParam(name = "a") float a, @RequestParam(name = "b") float b,
-			@RequestParam(name = "op") String Op) {
-		unaCalculadora.setA(a);
-		unaCalculadora.setB(b);
-		unaCalculadora.setOp(Op);
-		switch (Op) {
-
+	@PostMapping(value = "/calculo")
+	public String getCalculo(@ModelAttribute("calculadora") Calculadora calcu, Model model) {
+		switch (calcu.getOp()) {
 			case "suma":
-				unaCalculadora.sumarDosNumeros();
+				calcu.sumarDosNumeros();
 				break;
-
 			case "resta":
-				unaCalculadora.restarDosNumeros();
+				calcu.restarDosNumeros();
 				break;
 			case "multiplicacion":
-				unaCalculadora.multiplicardosnumeros();
+				calcu.multiplicardosnumeros();
 				break;
 			case "division":
-				unaCalculadora.dividirDosNumeros();
+				calcu.dividirDosNumeros();
 				break;
 			default:
-
 		}
-
+		model.addAttribute("resultado", calcu.getResul());
 		return ("calculadora");
 	}
 }

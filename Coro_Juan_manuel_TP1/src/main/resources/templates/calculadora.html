@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link type="text/css" th:rel="stylesheet" th:href="@{/css/allcss.css}">
+	<link rel="stylesheet" href="allcss.css">
+	<!--<link type="text/css" th:rel="stylesheet" th:href="@{/css/allcss.css}">-->
 	<title>Calculadora :)</title>
 </head>
 
@@ -13,18 +14,17 @@
 <body>
 	
 <div id="calculadora">
-	<div id="resul" th:text="${op.resul}"></div>
-	<div id="botones">
-		<a th href="" >1</a><a href="">2</a><a href="">3</a>
-		<a href="">+</a><a href="">4</a>
-		<a href="">5</a><a href="">6</a>
-		<a href="">-</a><a href="">7</a><a href="">8</a>
-		<a href="">9</a><a href="">*</a>
-		<a href="">/</a>
-		<a href="">0</a> <a style="background-color: rgb(246, 92, 92);" href="">D</a><a style="background-color: rgb(85, 85, 239);" href="">=</a>
+	<!--<div id="resul" th:text="${op.resul}"></div>-->
+	<div id="operacion"><span id="prime"></span><span id="simbolo"></span><span id="segund"></span></div>
+	<div id="botones" class="b">
+		<button onclick="sumar()"  >1</button><button >2</button><button >3</button>
+		<button onclick="elegir('+')">+</button><button >4</button><button>5</button>
+		<button >6</button><button onclick="elegir('-')" >-</button><button >7</button><button >8</button>
+		<button >9</a><button onclick="elegir('X')" >*</button><button onclick="elegir('/')">/</button>
+		<button >0</button> <button id="delete">D</button><button id="igual">=</button>
 	</div>
 </div>
 
 </body>
-
+<script src="ashe.js"></script>
 </html>

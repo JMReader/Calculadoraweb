@@ -26,6 +26,24 @@ body{
     width: 80%;
     border-radius: 4px;
 }
+#operacion{
+    margin-bottom: 1rem;
+    background-color: rgb(48, 59, 70);
+    display: flex;
+    color: white;
+    font-size: 1.5rem;
+    height: 15%;
+    width: 80%;
+    border-radius: 4px;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+@media (max-width: 600px){
+    #operacion{
+        font-size: 0.5rem;
+    }
+}
 #botones {
     height: 75%;
     width: 85%;
@@ -35,15 +53,27 @@ body{
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     }
-#botones a{
+.b button{
     border-radius: 2px;
     background-color: rgb(154, 161, 168);
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: all .6s;
+}
+.b button:hover{
+    background-color: rgb(114, 114, 114);
 }
 
-a:link{
-    
-    color: aliceblue;
+#igual:hover{
+    background-color: rgb(14, 14, 159);
+}
+#delete{
+    background-color: rgb(246, 92, 92);
+}
+#igual{
+    background-color: rgb(85, 85, 239);
+}
+#delete:hover{
+    background-color: rgb(142, 22, 22);
 }
