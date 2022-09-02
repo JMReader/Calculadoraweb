@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tp1pto1.controller;
 
+import java.io.Console;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,28 +22,31 @@ public class CalculadoraController {
 	@GetMapping({"/calculadora" , "/"})
 	public String getMenuCalculadora(Model model) {
 		model.addAttribute("num", new Calculadora());
-		
+		model.addAttribute("resultado", null);
 		return ("calculadora");
 	}
 
 	@PostMapping(value = "/calculo")
 	public String getCalculo(@ModelAttribute("calculadora") Calculadora calcu, Model model) {
+		System. out. println(calcu.getOp());
 		switch (calcu.getOp()) {
-			case "suma":
+			case "s": //suma
+			System. out. println("sumando");
 				calcu.sumarDosNumeros();
 				break;
-			case "resta":
+			case "r": //resta
 				calcu.restarDosNumeros();
 				break;
-			case "multiplicacion":
+			case "m": //multiplicacion
 				calcu.multiplicardosnumeros();
 				break;
-			case "division":
+			case "d": //division
 				calcu.dividirDosNumeros();
 				break;
 			default:
 		}
-		model.addAttribute("resultado", calcu.getResul());
+		model.addAttribute("num", new Calculadora());
+		model.addAttribute("resultado", calcu);
 		return ("calculadora");
 	}
 }

@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="allcss.css">
-	<!--<link type="text/css" th:rel="stylesheet" th:href="@{/css/allcss.css}">-->
+	<!--<link rel="stylesheet" href="allcss.css">-->
+	<link type="text/css" th:rel="stylesheet" th:href="@{/css/allcss.css}">
 	<title>Calculadora :)</title>
 </head>
 
@@ -14,17 +14,20 @@
 <body>
 	
 <div id="calculadora">
-	<!--<div id="resul" th:text="${op.resul}"></div>-->
-	<div id="operacion"><span id="prime"></span><span id="simbolo"></span><span id="segund"></span></div>
+	
+	<div  th:if="${resultado == null}" id="operacion"><span id="prime"></span><span id="simbolo"></span><span id="segund"></span></div>
+	<div th:unless="${resultado == null}" id="resul" th:text="${resultado.resul}"></div>
 	<div id="botones" class="b">
-		<button onclick="sumar()"  >1</button><button >2</button><button >3</button>
-		<button onclick="elegir('+')">+</button><button >4</button><button>5</button>
-		<button >6</button><button onclick="elegir('-')" >-</button><button >7</button><button >8</button>
-		<button >9</a><button onclick="elegir('X')" >*</button><button onclick="elegir('/')">/</button>
-		<button >0</button> <button id="delete">D</button><button id="igual">=</button>
+		<button onclick="sumar(1)"  >1</button><button onclick="sumar(2)">2</button><button onclick="sumar(3)">3</button>
+		<button onclick="elegir('+')">+</button><button onclick="sumar(4)"  >4</button><button onclick="sumar(5)" >5</button>
+		<button onclick="sumar(6)" >6</button><button onclick="elegir('-')" >-</button><button onclick="sumar(7)" >7</button><button onclick="sumar(8)" >8</button>
+		<button onclick="sumar(9)"  >9</a><button onclick="elegir('X')" >*</button><button onclick="elegir('/')">/</button>
+		<button  onclick="sumar(0)" >0</button> 
+		<button th:if="${resultado == null}" id="delete" onclick="borrar()">D</button><a th:unless="${resultado == null}" id="delete" th:href="@{/}">D</a>
+		<form th:action=" @{/calculo}" th:object="${num}" id="igual" method="post" ><input th:field="*{a}" id="pn" value="0" type="number"> <input type="number" th:field="*{b}" name="" id="sn" value="0"> <input th:field="*{op}" type="text" id="op" value="o"><button id="igual">=</button></form>
 	</div>
 </div>
 
 </body>
-<script src="ashe.js"></script>
+<script type="text/javascript" th:src="@{/js/ashe.js}"></script>
 </html>
